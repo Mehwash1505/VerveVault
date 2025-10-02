@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - TimeTable Scheduler</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="app-icon-small">
+                <svg width="40" height="40" viewBox="0 0 80 80" fill="none">
+                    <rect width="80" height="80" rx="20" fill="url(#gradient)"/>
+                    <path d="M25 35h30M25 45h30M25 55h20" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="80" y2="80">
+                            <stop offset="0%" stop-color="#667eea"/>
+                            <stop offset="100%" stop-color="#764ba2"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <h5>TimeTable Scheduler</h5>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="icon"></span>
+                <span>Dashboard</span>
+            </a>
+            <a href="timetable-view.html" class="nav-item">
+                <span class="icon"></span>
+                <span>View Timetables</span>
+            </a>
+            <a href="create-schedule.html" class="nav-item">
+                <span class="icon"></span>
+                <span>Create Schedule</span>
+            </a>
+            <a href="manage-resources.html" class="nav-item">
+                <span class="icon"></span>
+                <span>Manage Resources</span>
+            </a>
+            <a href="analytics.html" class="nav-item">
+                <span class="icon"></span>
+                <span>Analytics</span>
+            </a>
+            <a href="approvals.html" class="nav-item">
+                <span class="icon"></span>
+                <span>Approvals</span>
+            </a>
+            <a href="settings.html" class="nav-item active">
+                <span class="icon"></span>
+                <span>Settings</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">AD</div>
+                <div class="user-details">
+                    <div class="user-name">Admin User</div>
+                    <div class="user-role">Administrator</div>
+                </div>
+            </div>
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="topbar">
+            <button class="btn-menu" onclick="toggleSidebar()">☰</button>
+            <h2>Settings</h2>
+            <div class="topbar-actions">
+                <button class="btn-icon">🔔</button>
+                <button class="btn-icon">👤</button>
+            </div>
+        </div>
+        
+        <div class="content-area">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="card">
+                        <div class="list-group list-group-flush">
+                            <a href="#profile" class="list-group-item list-group-item-action active" data-bs-toggle="list">Profile Settings</a>
+                            <a href="#institution" class="list-group-item list-group-item-action" data-bs-toggle="list">Institution Details</a>
+                            <a href="#scheduling" class="list-group-item list-group-item-action" data-bs-toggle="list">Scheduling Rules</a>
+                            <a href="#users" class="list-group-item list-group-item-action" data-bs-toggle="list">User Management</a>
+                            <a href="#backup" class="list-group-item list-group-item-action" data-bs-toggle="list">Backup & Restore</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-9 col-md-8">
+                    <div class="tab-content">
+                        <!-- Profile Settings -->
+                        <div class="tab-pane fade show active" id="profile">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Profile Settings</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">Full Name</label>
+                                                <input type="text" class="form-control" value="Admin User">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Email</label>
+                                                <input type="email" class="form-control" value="admin@college.edu">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Phone Number</label>
+                                                <input type="tel" class="form-control" value="+91 9876543210">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Role</label>
+                                                <input type="text" class="form-control" value="Administrator" disabled>
+                                            </div>
+                                            <div class="col-12">
+                                                <hr class="my-4">
+                                                <h6 class="mb-3">Change Password</h6>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Current Password</label>
+                                                <input type="password" class="form-control" placeholder="Enter current password">
+                                            </div>
+                                            <div class="col-md-6"></div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">New Password</label>
+                                                <input type="password" class="form-control" placeholder="Enter new password">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Confirm New Password</label>
+                                                <input type="password" class="form-control" placeholder="Confirm new password">
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                                <button type="button" class="btn btn-secondary ms-2">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Institution Details -->
+                        <div class="tab-pane fade" id="institution">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Institution Details</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row g-3">
+                                            <div class="col-md-12">
+                                                <label class="form-label">Institution Name</label>
+                                                <input type="text" class="form-control" value="Sample Engineering College">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Institution Code</label>
+                                                <input type="text" class="form-control" value="SEC001">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Affiliation</label>
+                                                <input type="text" class="form-control" value="State University">
+                                            </div>
+                                            <div class="col-12">
+                                                <label class="form-label">Address</label>
+                                                <textarea class="form-control" rows="2">123 College Road, University Area, City - 560001</textarea>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Phone</label>
+                                                <input type="tel" class="form-control" value="+91 80 12345678">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Email</label>
+                                                <input type="email" class="form-control" value="info@college.edu">
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary">Update Details</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Scheduling Rules -->
+                        <div class="tab-pane fade" id="scheduling">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Scheduling Rules & Preferences</h5>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="form-label">Working Days Per Week</label>
+                                                <select class="form-select">
+                                                    <option>5 Days</option>
+                                                    <option selected>6 Days</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Periods Per Day</label>
+                                                <input type="number" class="form-control" value="7" min="1" max="10">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Period Duration (minutes)</label>
+                                                <input type="number" class="form-control" value="60" min="30" max="120">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Break Duration (minutes)</label>
+                                                <input type="number" class="form-control" value="15" min="5" max="30">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Lunch Break Duration (minutes)</label>
+                                                <input type="number" class="form-control" value="60" min="30" max="90">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="form-label">Max Faculty Load (hrs/week)</label>
+                                                <input type="number" class="form-control" value="20" min="10" max="40">
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="allowGaps" checked>
+                                                    <label class="form-check-label" for="allowGaps">
+                                                        Allow gaps between classes
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="avoidBack">
+                                                    <label class="form-check-label" for="avoidBack">
+                                                        Avoid back-to-back labs
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary">Save Preferences</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- User Management -->
+                        <div class="tab-pane fade" id="users">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">User Management</h5>
+                                    <button class="btn btn-primary btn-sm">Add New User</button>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Role</th>
+                                                    <th>Status</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>Admin User</strong></td>
+                                                    <td>admin@college.edu</td>
+                                                    <td><span class="badge bg-danger">Administrator</span></td>
+                                                    <td><span class="badge bg-success">Active</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary">Edit</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Dr. Rajesh Kumar</strong></td>
+                                                    <td>rajesh@college.edu</td>
+                                                    <td><span class="badge bg-primary">Faculty</span></td>
+                                                    <td><span class="badge bg-success">Active</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary">Edit</button>
+                                                        <button class="btn btn-sm btn-outline-danger">Remove</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>HOD Computer Science</strong></td>
+                                                    <td>hod.cse@college.edu</td>
+                                                    <td><span class="badge bg-info">Department Head</span></td>
+                                                    <td><span class="badge bg-success">Active</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary">Edit</button>
+                                                        <button class="btn btn-sm btn-outline-danger">Remove</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Backup & Restore -->
+                        <div class="tab-pane fade" id="backup">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Backup & Restore</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="alert alert-info">
+                                        <strong>Info:</strong> Regular backups help protect your data. We recommend taking a backup before making major changes.
+                                    </div>
+                                    <div class="row g-3">
+                                        <div class="col-12">
+                                            <h6>Create Backup</h6>
+                                            <p class="text-muted small">Download a backup of all your timetable data, resources, and settings.</p>
+                                            <button class="btn btn-primary">Download Backup</button>
+                                        </div>
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
+                                        <div class="col-12">
+                                            <h6>Restore from Backup</h6>
+                                            <p class="text-muted small">Upload a previously downloaded backup file to restore your data.</p>
+                                            <input type="file" class="form-control mb-3" accept=".json,.zip">
+                                            <button class="btn btn-warning">Restore Backup</button>
+                                        </div>
+                                        <div class="col-12">
+                                            <hr>
+                                        </div>
+                                        <div class="col-12">
+                                            <h6>Automatic Backups</h6>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="autoBackup" checked>
+                                                <label class="form-check-label" for="autoBackup">
+                                                    Enable automatic daily backups
+                                                </label>
+                                            </div>
+                                            <p class="text-muted small mt-2">Last backup: 2 hours ago</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
