@@ -18,16 +18,29 @@
             height: 100vh;
         }
 
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("assets/login_background.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -2;
+        }
+
         .animated-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #0a0015 0%, #1a0b2e 25%, #2d1b4e 50%, #1a0b2e 75%, #0a0015 100%);
+            background: linear-gradient(135deg, rgba(10, 0, 21, 0.7) 0%, rgba(26, 11, 46, 0.8) 25%, rgba(45, 27, 78, 0.7) 50%, rgba(26, 11, 46, 0.8) 75%, rgba(10, 0, 21, 0.7) 100%);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
-            z-index: -2;
+            z-index: -3;
         }
 
         @keyframes gradientShift {
@@ -320,6 +333,7 @@
     </style>
 </head>
 <body>
+    <div class="background-image"></div>
     <div class="animated-background"></div>
     <div class="glow-orb orb-1"></div>
     <div class="glow-orb orb-2"></div>
