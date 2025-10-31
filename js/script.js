@@ -1,5 +1,41 @@
 // ===== GLOBAL FUNCTIONS =====
 
+// Save new schedule to backend
+async function saveSchedule(data) {
+  try {
+    const response = await fetch('http://localhost:5000/api/schedules', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+    console.log(result);
+
+    if (response.ok) {
+      alert('✅ Schedule saved successfully!');
+    } else {
+      alert('❌ Failed to save schedule');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('❌ Error connecting to backend');
+  }
+}
+
+
+// Load schedules from backend
+async function loadSchedules() {
+  try {
+    const response = await fetch('http://localhost:5000/api/schedules');
+    const data = await response.json();
+    console.log('📅 Loaded schedules:', data);
+    // agar tum chaaho to yahan DOM me table ya list fill kar sakte ho
+  } catch (err) {
+    console.error('❌ Error loading schedules:', err);
+  }
+}
+
 // Toggle Sidebar for mobile view
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
